@@ -38,19 +38,23 @@ export default function Footer() {
 				</div>
 
 				<div className='social_networks_ICONS'>
-					<a href='' className='social_networks_icon'>
+					<a href='https://vk.com/' className='social_networks_icon'>
 						<img
 							className='icon'
 							src='./images/social_networks_ICONS/VK.svg'></img>
 					</a>
 
-					<a href='' className='social_networks_icon'>
+					<a
+						href='https://t.me/Optoed'
+						className='social_networks_icon'>
 						<img
 							className='icon'
 							src='./images/social_networks_ICONS/Telegram.svg'></img>
 					</a>
 
-					<a href='' className='social_networks_icon'>
+					<a
+						href='https://www.whatsapp.com/'
+						className='social_networks_icon'>
 						<img
 							className='icon'
 							src='./images/social_networks_ICONS/Whatsapp.svg'></img>

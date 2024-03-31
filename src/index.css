@@ -240,3 +240,10 @@ main .item img:hover {
 .social_networks_icon {
 	padding-right: 10px;
 }
+
+/* Корзина и всё, что с ней связано */
+
+.shop-cart-button.active {
+	color: rgb(16 185 129);
+	transition: all 0.3s ease-in-out;
+}
