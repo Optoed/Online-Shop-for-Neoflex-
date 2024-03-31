@@ -241,9 +241,19 @@ main .item img:hover {
 	padding-right: 10px;
 }
 
-/* Корзина и всё, что с ней связано */
+/* ! КОРЗИНА */
+/***** Корзина и всё, что с ней связано *****/
 
 .shop-cart-button.active {
 	color: rgb(16 185 129);
 	transition: all 0.3s ease-in-out;
+}
+
+/* CartPage */
+
+.CartPage_title {
+	color: #1c1c27;
+	font-size: 20px;
+	font-weight: 600;
+	margin-left: 10px;
 }

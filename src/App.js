@@ -95,8 +95,16 @@ class App extends React.Component {
 					img: 'image (8).jpg',
 				},
 			],
+			cartItems: [],
 		};
 	}
+
+	//Метод для добавления товара в корзину
+	addToCart = (item) => {
+		this.setState((prevState) => ({
+			cartItems: [...prevState.cartItems, item],
+		}));
+	};
 
 	render() {
 		return (
@@ -105,7 +113,10 @@ class App extends React.Component {
 					<Header />
 
 					<Routes>
-						<Route path='/cart' element={<CartPage />} />
+						<Route
+							path='/cart'
+							element={<CartPage items={this.state.cartItems} />}
+						/>
 
 						<Route
 							path='/'
@@ -113,6 +124,7 @@ class App extends React.Component {
 								<HomePage
 									items={this.state.items}
 									items2={this.state.items2}
+									addToCart={this.addToCart}
 								/>
 							}
 						/>
@@ -125,14 +137,14 @@ class App extends React.Component {
 	}
 }
 
-function HomePage({ items, items2 }) {
+function HomePage({ items, items2, addToCart }) {
 	return (
 		<>
 			<div className='items_title'>Наушники</div>
-			<Items items={items} />
+			<Items items={items} addToCart={addToCart} />
 
 			<div className='items_title'>Беспроводные Наушники</div>
-			<Items items={items2} />
+			<Items items={items2} addToCart={addToCart} />
 		</>
 	);
 }
