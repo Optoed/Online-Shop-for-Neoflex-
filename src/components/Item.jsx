@@ -6,22 +6,16 @@ export class Item extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			isAddedToCart: false, // Флаг, указывающий, добавлен ли товар в корзину
+			quantities: {}, // инициализация начального состояния quantities как пустого объекта
 		};
 	}
 
 	handleAddToCart = () => {
-		// Вызываем функцию addToCart, которая передана через пропсы из родительского компонента
-		// В этой функции мы передаем товар, который нужно добавить в корзину (this.props.item)
-		// Допустим, что addToCart принимает товар и обновляет состояние корзины в родительском компоненте
 		this.props.addToCart(this.props.item);
-		// После успешного добавления товара в корзину меняем состояние isAddedToCart на true
-		this.setState({ isAddedToCart: true });
 	};
 
 	render() {
 		const { item } = this.props;
-		const { isAddedToCart } = this.state;
 
 		return (
 			<div className='div_item'>
@@ -55,8 +49,9 @@ export class Item extends Component {
 
 							<button
 								className='item_btn_buy'
-								onClick={this.handleAddToCart}
-								disabled={isAddedToCart}>
+								onClick={() =>
+									this.handleAddToCart(this.props.item.id)
+								}>
 								<span>Купить</span>
 							</button>
 						</div>

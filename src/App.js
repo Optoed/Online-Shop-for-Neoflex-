@@ -101,9 +101,24 @@ class App extends React.Component {
 
 	//Метод для добавления товара в корзину
 	addToCart = (item) => {
-		this.setState((prevState) => ({
-			cartItems: [...prevState.cartItems, item],
-		}));
+		const { cartItems } = this.state;
+		const existingItemIndex = cartItems.findIndex(
+			(cartItem) => cartItem.id === item.id
+		);
+
+		if (existingItemIndex !== -1) {
+			const updatedCartItems = [...cartItems];
+			updatedCartItems[existingItemIndex] = {
+				...updatedCartItems[existingItemIndex],
+				quantity: updatedCartItems[existingItemIndex].quantity + 1,
+			};
+			this.setState({ cartItems: updatedCartItems });
+		} else {
+			const newItem = { ...item, quantity: 1 };
+			this.setState((prevState) => ({
+				cartItems: [...prevState.cartItems, newItem],
+			}));
+		}
 	};
 
 	render() {
@@ -115,7 +130,12 @@ class App extends React.Component {
 					<Routes>
 						<Route
 							path='/cart'
-							element={<CartPage items={this.state.cartItems} />}
+							element={
+								<CartPage
+									items={this.state.cartItems}
+									quantities={this.state.quantities}
+								/>
+							}
 						/>
 
 						<Route
