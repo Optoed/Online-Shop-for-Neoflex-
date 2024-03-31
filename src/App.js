@@ -4,6 +4,15 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import Items from './components/Items';
 
+import CartPage from './components/CartPage'; // пока предположим, что у нас есть компонент CartPage, отображающий содержимое корзины
+
+import {
+	BrowserRouter as Router,
+	Route,
+	Routes,
+	Outlet,
+} from 'react-router-dom';
+
 class App extends React.Component {
 	// Товары
 	constructor(props) {
@@ -91,19 +100,41 @@ class App extends React.Component {
 
 	render() {
 		return (
-			<div className='wrapper w-3/4 mx-auto'>
-				<Header />
+			<Router>
+				<div className='wrapper w-3/4 mx-auto'>
+					<Header />
 
-				<div className='items_title'>Наушники</div>
-				<Items items={this.state.items} />
+					<Routes>
+						<Route path='/cart' element={<CartPage />} />
 
-				<div className='items_title'>Беспроводные наушники</div>
-				<Items items={this.state.items2} />
+						<Route
+							path='/'
+							element={
+								<HomePage
+									items={this.state.items}
+									items2={this.state.items2}
+								/>
+							}
+						/>
+					</Routes>
 
-				<Footer />
-			</div>
+					<Footer />
+				</div>
+			</Router>
 		);
 	}
+}
+
+function HomePage({ items, items2 }) {
+	return (
+		<>
+			<div className='items_title'>Наушники</div>
+			<Items items={items} />
+
+			<div className='items_title'>Беспроводные Наушники</div>
+			<Items items={items2} />
+		</>
+	);
 }
 
 export default App;
