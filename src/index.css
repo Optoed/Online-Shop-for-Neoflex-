@@ -1,0 +1,242 @@
+/* tailwind */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* По умолчанию */
+
+body {
+	position: relative;
+	margin: 0;
+	margin-top: 80px;
+
+	min-height: 100vh; /*очень важно, чтобы футер был всегда снизу*/
+	margin-bottom: 150px;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+
+	/* добавил */
+	background-color: rgb(234, 234, 234);
+	font-family: 'Montserrat', sans-serif;
+	font-weight: 600;
+}
+
+code {
+	font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+		monospace;
+}
+
+/* Остальное */
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+/* header */
+
+header {
+	position: fixed;
+	top: 0;
+	width: 80%;
+	margin-left: auto;
+	margin-right: auto;
+	background-color: rgb(234, 234, 234, 0.9);
+	z-index: 1000;
+}
+
+/* MAIN, item */
+
+.logo {
+	font-weight: 700;
+}
+
+main {
+	display: flex;
+	width: 100%;
+	flex-wrap: wrap;
+	justify-content: space-between;
+}
+
+.main:last-child {
+	justify-content: flex-start; /* Для последнего контейнера карточек выравниваем по левому краю */
+
+	/* По-прежнему не работает */
+}
+
+.div_item {
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	margin: auto;
+	padding: 10px;
+	background-color: transparent;
+}
+
+.item {
+	margin-right: 10px;
+	margin-left: 10px;
+	margin-bottom: 20px;
+	width: 350px;
+	overflow: hidden;
+	height: 400px;
+	padding: 5px;
+	background-color: white;
+	border-radius: 20px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+	position: relative;
+}
+
+main .item img {
+	max-width: 100%;
+	margin-left: auto;
+	margin-right: auto;
+	padding-top: 10px;
+
+	border-radius: 8%;
+}
+
+main .item img:hover {
+	transform: scale(1.1);
+	transition: all 0.3s ease-in-out;
+}
+
+.items_title {
+	color: #838383;
+	font-weight: 600;
+	font-size: 20px;
+	line-height: 24.38px;
+	margin-top: 30px;
+	margin-bottom: 25px;
+	margin-left: 20px;
+}
+
+.item_description {
+	position: absolute;
+	bottom: 0;
+	font-weight: 600;
+	padding-left: 20px;
+	padding-right: 30px;
+	width: 100%;
+}
+
+.item_title_and_cost {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+
+.item_title_and_cost h2 {
+	color: #1c1c27;
+	font-size: 17px;
+}
+
+.item_title_and_cost p {
+	color: #ffa542;
+	font-size: 17px;
+}
+
+.item_title_and_cost .old_cost {
+	color: #ffce7f;
+	font-size: 12px;
+	text-decoration: line-through;
+	line-height: 10px;
+}
+
+.div_cost {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.item_rate_and_buy {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+.item_btn_buy:hover {
+	color: green;
+	transform: scale(1.05);
+	transition: all 0.3s ease-in-out;
+}
+
+.rate_with_ico {
+	display: flex;
+	flex-direction: row;
+}
+
+.rate_with_ico p {
+	color: #838383;
+	margin-left: 7px;
+}
+
+/* FOOTER */
+
+.footer {
+	padding: 20px 30px;
+	margin: 0 auto;
+	background: #ffffff;
+	border-radius: 20px 20px 0 0;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+
+	position: absolute;
+	height: 120px;
+	width: 80%;
+	bottom: -150px;
+
+	display: flex;
+	justify-content: space-between;
+}
+
+.footer .logo {
+	color: #101010;
+	font-weight: 700;
+	font-size: 30px;
+}
+
+.footer .contacts {
+	color: #000000;
+	font-weight: 400;
+}
+
+.footer .contacts a:hover {
+	transition: all 0.2s ease-in-out;
+	font-weight: 500;
+}
+
+.footer .social_networks_ICONS {
+	display: flex;
+	flex-direction: row;
+	max-height: 22px;
+	padding-right: 2%;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.footer_conditions {
+	display: flex;
+	flex-direction: column;
+	/* justify-content: center; */
+}
+
+.footer_conditions_imgs {
+	display: flex;
+	flex-direction: row;
+	margin-top: 30px;
+	align-items: center;
+}
+
+.footer_conditions_imgs a {
+	padding-right: 12px;
+}
+
+.footer_conditions a {
+	font-weight: 400;
+}
+
+.social_networks_icon {
+	padding-right: 10px;
+}
