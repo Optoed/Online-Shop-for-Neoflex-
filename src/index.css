@@ -382,3 +382,22 @@ main .item img:hover {
 	width: 400px;
 	height: 50px;
 }
+
+/* Реализация кружочков у иконки корзины */
+
+.count_info_cart {
+	background-color: #ffa542;
+	padding: 0px;
+	height: 19px;
+	width: 19px;
+	text-align: center;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 50%;
+	color: #ffffff;
+	font-weight: 600;
+	position: absolute;
+	margin-left: 15px;
+	top: 10px;
+}

@@ -26,6 +26,8 @@ export default function Header() {
 					</Link>
 
 					<Link to='/cart' className='ml-4 '>
+						<div className='count_info_cart'>0</div>
+
 						<IoCartOutline
 							// onClick={() => setCartOpen((cartOpen = !cartOpen))}
 							size={28}
